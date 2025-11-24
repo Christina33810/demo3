@@ -1,14 +1,12 @@
 import streamlit as st
+import time
 
-# -------------------------------
-# 1. Dashboard Title and Objective
-# -------------------------------
+# 1. Dashboard Title & Objective
 st.title("Business Performance Dashboard")
 st.write("Objective: This dashboard provides insights into revenue, customer feedback, and market trends for better business decisions.")
 
-# -------------------------------
+
 # 2. Columns Layout for Quarterly Revenue
-# -------------------------------
 st.subheader("Quarterly Revenue Overview")
 col1, col2, col3 = st.columns(3)
 
@@ -22,9 +20,8 @@ with col3:
     st.header("Q3 2024")
     st.write("Revenue: $1.3M")
 
-# -------------------------------
+
 # 3. Tabs for Different Business Sections
-# -------------------------------
 tab1, tab2, tab3 = st.tabs(["Sales Data", "Customer Insights", "Market Trends"])
 
 with tab1:
@@ -59,16 +56,13 @@ with tab3:
     for trend, status in market_trends.items():
         st.write(f"{trend}: {status}")
 
-# -------------------------------
+
 # 4. Expander for Additional Information
-# -------------------------------
 with st.expander("More Information"):
     st.write("Data was collected through surveys, customer feedback forms, and official sales reports.")
+    
 
-
-# -------------------------------
 # 5. Dynamic Loading Simulation
-# -------------------------------
 
 # Create a placeholder
 placeholder = st.empty()
@@ -92,9 +86,9 @@ for insight in business_insights:
     placeholder.write(insight)
     time.sleep(2)
 
-# -------------------------------
+
 # 6. Add Interactivity
-# -------------------------------
+
 st.subheader("Interactive Revenue Checker")
 quarters = ["Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024"]
 selected_quarter = st.selectbox("Select a quarter:", quarters)
@@ -108,8 +102,7 @@ base_revenue = float(sales_data[selected_quarter].strip("$M"))
 adjusted_revenue = base_revenue * (1 + growth / 100)
 st.write(f"Adjusted Revenue for {selected_quarter}: ${adjusted_revenue:.2f}M")
 
-# -------------------------------
+
 # 7. Motivational Button
-# -------------------------------
 if st.button("Show Motivation"):
     st.success("Keep pushing for growth! 🚀")
